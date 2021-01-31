@@ -24,5 +24,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.set('puerto', process.env.PORT || 3000);
 app.listen(app.get('puerto'), () => {
-  console.log('Example app listening on port'+ app.get('puerto'));
+  console.log('Example app listening on port '+ app.get('puerto'));
 });
+
+// Mongoose
+
+const mongoose = require('mongoose');
+
+const uri = 'mongodb://localhost:27017/myapp';
+const options = {useNewUrlParser: true, useCreateIndex: true};
+
+mongoose.connect(uri, options).then(
+  /** ready to use. The `mongoose.connect()` promise resolves to mongoose instance. */
+  () => { console.log('Conectado a DB') },
+  /** handle initial connection error */
+  err => { console.log(err) }
+);
+
+app.use('/api', require('./routes/nota'));
