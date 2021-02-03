@@ -1,0 +1,3 @@
+nodemon , refresh app on changes
+morgan , middleware
+babel es6 -> es5

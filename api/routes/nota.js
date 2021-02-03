@@ -33,7 +33,7 @@ router.get('/nota/:id', async(req, res) => {
 });
 
 // Get con todos los documentos
-router.get('/notas', async(req, res) => {
+router.get('/nota', async(req, res) => {
   try {
     const notaDb = await Nota.find();
     res.json(notaDb);
@@ -82,5 +82,6 @@ router.put('/nota/:id', async(req, res) => {
     })
   }
 });
+
 // Exportamos la configuración de express app
 module.exports = router;
